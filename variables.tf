@@ -19,16 +19,21 @@ variable "public_key_path" {
 #Your public IP address
 variable "access_ip" {
   type    = string
-  default = "1.1.1.1/32"
+  default = "90.133.53.132/32"
 }
 
 #Cloud9 public IP address
 variable "cloud9_ip" {
   type    = string
-  default = "1.1.1.1/32"
+  default = "16.16.18.50/32"
 }
 
 variable "instance_count" {
   type    = number
   default = 1
+}
+
+variable "instance_type" {
+  type    = string
+  default = "t2.micro"
 }

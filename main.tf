@@ -23,7 +23,7 @@ resource "aws_key_pair" "docker_auth" {
 resource "aws_instance" "web" {
   count                  = var.instance_count
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t2.micro"
+  instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.sg.id]
   subnet_id              = aws_subnet.public_subnet[count.index].id
   key_name               = aws_key_pair.docker_auth.id
@@ -31,7 +31,7 @@ resource "aws_instance" "web" {
   tags = {
     Name = "docker-instance-${count.index + 1}"
   }
-
+}
 resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true

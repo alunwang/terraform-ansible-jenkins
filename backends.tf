@@ -1,9 +1,9 @@
 terraform {
   cloud {
-    organization = "Your-Organization-Name"
+    organization = "example-org-e045ca"
 
     workspaces {
-      name = "Your-Workspace-Name"
+      name = "terraform-ansible-jenkins"
     }
   }
 }
